@@ -4,20 +4,786 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="{% static '/css/main.css' %}"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
+  
+    <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <link
+    href="{% static '/css/main.css' %}"
+    rel="stylesheet"
+    type="text/css"
+  /> -->
+  <style>
+    * {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    color: white;
+}
+
+.left {
+    display: inline-block;
+    margin: 10px;
+}
+
+.left h1 {
+    padding: 5px;
+}
+
+.mid {
+    display: block;
+    margin: -30px auto;
+    width: 65%;
+}
+
+.right {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 1330px;
+}
+
+.right img {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.navbar::before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+.navbar {
+    position: sticky;
+    top: 2px;
+    height: 85px;
+    color: white;
+    z-index:3;
+}
+
+#navbar li {
+    display: inline-block;
+    list-style-type: none;
+}
+
+#navbar li a {
+    padding: 23px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: white;
+}
+
+#navbar li img {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+}
+
+#navbar li a:hover {
+    text-decoration: underline;
+    font-size: 1.4rem;
+}
+
+#navbar li input {
+    width: 170px;
+    height: 30px;
+    border: none;
+    text-align: center;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 66%;
+    opacity: 0.9;
+    z-index: -1;
+    top: 87px;
+}
+
+.mainsection {
+    width: 1300px;
+    height: 500px;
+    background-color: violet;
+    display: block;
+    margin: 20px auto;
+    background: url("{% static 'images/back.jpg'%}") no-repeat center center/cover;
+    text-align: right;
+}
+
+.mainsection #content {
+    width: 300px;
+    height: 100%;
+    color: white;
+    padding: 90px;
+    position: absolute;
+    right: 100px;
+}
+
+.mainsection #content p {
+    margin: 20px;
+}
+
+.box {
+    width: 380px;
+    height: 300px;
+    background-color: white;
+    margin: 0px 30px;
+    text-align: center;
+    color: black;
+    box-shadow: 4px 4px 5px grey;
+}
+
+.box img {
+    width: 150px;
+    height: 150px;
+}
+
+.divs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 500px;
+    left: 100px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    height: 50px;
+    cursor: pointer;
+    padding: 9px;
+    border-radius: 10px;
+}
+
+.mens {
+    margin-top: 250px;
+    text-align: center;
+}
+
+#menu {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px 200px;
+    justify-content: center;
+    align-items: center;
+    height: 630px;
+    margin-top: 50px;
+}
+
+.menuitems {
+    width: 200px;
+    height: 200px;
+}
+
+.menuitems p {
+    text-align: center;
+}
+
+.menuitems img {
+    width: 200px;
+    height: 200px;
+}
+
+#menu::before {
+    content: "";
+    background: url("{% static 'images/menu.jpg'%}") no-repeat center center/cover;
+    width: 100%;
+    height: 94%;
+    z-index: -1;
+    opacity: 0.8;
+    position: absolute;
+}
+
+#about {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+
+}
+
+#about .content,
+#about #content2 {
+    width: 60%;
+    margin: 50px;
+}
+
+#about h1 {
+    font-family: 'Water Brush', cursive;
+    text-decoration: underline;
+}
+
+#about h2 {
+    color: grey;
+    margin-bottom: 20px;
+}
+
+#about #content2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.pic img {
+    width: 400px;
+    height: 300px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    position: relative;
+    height: 400px;
+}
+
+.contact::before {
+    content: "";
+    z-index: -1;
+    height: 100%;
+    width: 99%;
+    opacity: 0.6;
+    position: absolute;
+    background: url("{% static 'images/contact.jpg'%}") no-repeat center center/cover;
+}
+
+.condivs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -60px auto;
+}
+
+.condivs .phone {
+    background-color: white;
+    width: 400px;
+    height: 390px;
+    margin: 20px;
+    text-align: center;
+    line-height: 2.8rem;
+    box-shadow: 4px 4px 4px grey;
+}
+
+.phone img {
+    width: 120px;
+    height: 120px;
+}
+
+.phone a {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 15%;
+    border: 3px solid grey;
+}
+
+#gallery {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gal {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px 200px;
+}
+
+.boxes {
+    grid-gap: 10rem;
+}
+
+.boxes:first-child {
+    grid-column: 1/span 2;
+}
+
+.boxes:nth-child(2) {
+    grid-row: 2/span 2;
+}
+
+.boxes:nth-child(4) {
+    grid-column: 2/span 2;
+}
+
+.boxes:nth-child(8) {
+    grid-column: 1/span 3;
+}
+
+.boxes:nth-child(4) {
+    grid-column: 2/span 2;
+}
+
+.boxes img {
+    width: 200px;
+    height: 100px;
+}
+
+#box3 img,
+#box6 img,
+#box5 img,
+#box7 img,
+#box9 img {
+    width: 196px;
+    height: 196px;
+}
+
+#box1 img,
+#box4 img {
+    width: 396px;
+    height: 196px;
+}
+
+#box2 img {
+    width: 196px;
+    height: 396px;
+}
+
+#box8 img {
+    height: 196px;
+    width: 588px;
+}
+
+.boxes:hover {
+    opacity: 0.8;
+}
+
+.contactform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.formdivs img {
+    width: 30px;
+    height: 30px;
+    float: left;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.con::before {
+    content: "";
+    z-index: -1;
+    height: 95%;
+    width: 99%;
+    opacity: 0.6;
+    position: absolute;
+    background: url("{% static 'images/mcbg.jpg'%}") no-repeat center center/cover;
+}
+
+.con {
+    height: 700px;
+}
+
+.con h1 {
+    margin-top: 90px;
+    text-align: center;
+}
+
+#fd1 {
+    background-color: black;
+    color: white;
+    padding: 100px;
+    height: 350px;
+    width: 250px;
+    padding-top: 150px;
+}
+
+#fd1 p {
+    margin-bottom: 50px;
+}
+
+#fd2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.boxe:first-child {
+    grid-column: 1/span 2;
+}
+
+.boxe:nth-child(4) {
+    grid-column: 1/span 2;
+}
+
+.boxe:nth-child(5) {
+    grid-column: 1/span 2;
+}
+
+.boxe:nth-child(6) {
+    grid-column: 1/span 2;
+}
+
+.boxe:nth-child(7) {
+    grid-column: 1/span 2;
+}
+
+.boxe:nth-child(8) {
+    grid-column: 1/span 2;
+}
+
+.boxe:nth-child(9) {
+    grid-column: 1/span 2;
+}
+
+.boxe:nth-child(10) {
+    grid-column: 1/span 2;
+    text-align: center;
+}
+
+span {
+    color: red;
+}
+
+.boxe {
+    margin: 10px;
+}
+
+#boxe2 input,
+#boxe3 input {
+    width: 237px;
+    height: 30px;
+    padding-left: 3px;
+}
+
+#boxe5 input,
+#boxe7 input {
+    width: 500px;
+    height: 30px;
+    padding-left: 3px;
+}
+
+.boxe input {
+    border: none;
+    border-bottom: 3px solid green;
+}
+
+textarea {
+    width: 502px;
+}
+
+footer {
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+#pp {
+    color: green;
+}
+
+.btn {
+    background-color: green;
+}
+
+.revcontainer {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    text-align: right;
+}
+
+.revcontainer img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.revbox:first-child {
+    grid-column: 1/span 2;
+}
+
+.revbox:nth-child(4) {
+    grid-column: 2/span 2;
+    text-align: left;
+}
+
+.revbox:nth-child(5) {
+    grid-column: 1/span 2;
+}
+
+#reviews {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.revcontainer span {
+    font-size: 40px;
+}
+
+#logo img {
+    width: 700px;
+    height: 400px;
+}
+  </style>
     <title>Nida Fatima</title>
   </head>
   <body>
+    <div class="navbar">
+        <div class="left">
+            <h1>Classy Dine</h1>
+        </div>
+        <div class="mid">
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#contain">Home</a></li>
+                    <li><a href="#menuu">Menu</a></li>
+                    <li><a href="#about">AboutUs</a></li>
+                    <li><a href="#contact">ContactUs</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#con">Queries</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><input type="search" placeholder="Search Here"></li>
+                    <!-- <li><img src="search.png" alt="search"></li> -->
+                </ul>
+            </nav>
+        </div>
+        <div class="right">
+            <a href="https://www.linkedin.com" target="_blank"><img src="{% static 'images/linkedin.png'%}" alt="linkedin"></a>
+            <a href="https://www.facebook.com" target="_blank"><img src="{% static 'images/facebook (1).png'%}" alt="linkedin"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="{% static 'images/instagram.png'%}" alt="linkedin"></a>
+        </div>
+    </div>
+    <div class="container" id="contain">
+        <section class="mainsection">
+            <div id="content">
+                <h1>SIMPLE AND DELICIOUS FOOD</h1>
+                <p>PERSONALIZED RECIPES</p>
+                <p>NEAT AND CLEAN ENVIRONMENT</p>
+                <button>GET STARTED</button>
+            </div>
+        </section>
+        <section class="divs">
+            <div class="box">
+                <img src="{% static 'images/clock.png'%}" alt="mountain">
+                <h3>TIMINGS</h3>
+                <p><b>Monday-Thursday</b>: 10am-10pm <br><b> Friday</b>: 10am-12pm break 2pm-10pm <br>
+                    <b>Saturday-Sunday</b>:10am-2am
+
+                </p>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/mountain.png'%}" alt="mountain">
+                <h3>TIMELY SERVICE</h3>
+                <p>We are famous for our consistency in timely service. We complete orders in maximum 45minutes and if
+                    the time exceeds, we charge only half of the price.</p>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/eco.png'%}" alt="mountain">
+                <h3>CLEAN ENVIRONMENT</h3>
+                <p>We guatantee you neat, clean and peacefull environment with clean food. To satisfy our customers, we
+                    provide kitchen inspection every time.</p>
+            </div>
+        </section>
+    </div>
+    <div class="mens" id="menuu">
+        <h1>OUR MENU</h1>
+        <section id="menu">
+            <div class="menuitems" id="menu1">
+                <h3>CHICKEN CHOWMEIN</h3>
+                <p>Home made wheat noodles immersed in mouth watering flavours and textures.<br><br> Freshly made sauces
+                    are used.</p>
+                <P></P>
+            </div>
+            <div class="menuitems" id="menu2">
+                <img src="{% static 'images/chow.jpg'%}" alt="xhowmein">
+            </div>
+            <div class="menuitems" id="menu3">
+                <H3>CHICKEN KARHAI</H3><br>
+                <p>Chicken with tomatoes, green chillies and traditional spices cooked in karhai to bless your mouth.
+                </p>
+            </div>
+            <div class="menuitems" id="menu4">
+                <img src="{% static 'images/karahi.jpg'%}" alt="xhowmein">
+            </div>
+            <div class="menuitems" id="menu5">
+                <img src="{% static 'images/biryani.jpg'%}" alt="xhowmein">
+            </div>
+            <div class="menuitems" id="menu6">
+                <H3>CHICKEN BIRYANI</H3><br>
+                <p>A combination of basmati rice and marinated chicken with unbelievable combo of spices will make your
+                    day special </p>
+            </div>
+            <div class="menuitems" id="menu7">
+                <img src="{% static 'images/handi.jpg'%}" alt="xhowmein">
+            </div>
+            <div class="menuitems" id="menu8">
+                <H3>CHICKEN HANDI</H3><br>
+                <p>Supremely tempting,creamy and aromatic blend of flavours incorporating the naturaal texture of
+                    chicken would definitely fascinate you.</p>
+            </div>
+            <div class="menuitems" id="menu9">
+                <H3>BBQ</H3><br>
+                <p>Differently marinated and grilled chicken cubes each delivering new reason to love chicken all over
+                    again.</p>
+            </div>
+            <div class="menuitems" id="menu10">
+                <img src="{% static 'images/babrbq.jpg'%}" alt="xhowmein">
+            </div>
+            <div class="menuitems" id="menu11">
+                <H3>CHICKEN TIKKA</H3><br>
+                <p>Grilled chicken thighs and breasts marinated into the super special combination of flavours would
+                    make you fall in love with it.</p>
+            </div>
+            <div class="menuitems" id="menu12">
+                <img src="{% static 'images/tikka.jpg'%}" alt="xhowmein">
+            </div>
+        </section>
+    </div>
+    <div id="about">
+        <div class="content">
+            <h1>ABOUT &nbsp; US</h1>
+            <h2>ONE STORY-FROM THE START</h2>
+            <p>SERVING THE NATION SINCE 1990.</p>
+        </div>
+        <div id="content2">
+            <div class="pic"><img src="{% static 'images/chef.png'%}" alt="karhai"></div>
+            <div class="abcon">
+                <h2>How We Started? Where We Stand Today?</h2>
+                <p>The foundation of this restaurant was laid by Ms. Naila Shaikh with an aim to facilitate the then
+                    daily workers with peacefull,clean environment and cheap food in Karachi. The workers absolutely
+                    loved the food and environment in cheaper amount and appreciated the restaurant very much which
+                    derived the owner to then expand the restaurant all over the country, Therefore many branches were
+                    opened all over Pakistan in different periods of time. All the restaurants were given equal respect
+                    and love which make us stand here today with almost 50 restaurants all over Pakistan. <br> We
+                    provide the facility of kitchen inspection to our guests 24/7 without any hesitation which we
+                    consider major driving force in our business.</p>
+            </div>
+        </div>
+    </div>
+    <div class="contact" id="contact">
+        <h1>Get In Touch</h1>
+        <h6>WANT TO GET IN TOUCH? WE WOULD LOVE TO HEAR FROM YOU. HERE IS HOW YOU CAN REACH US</h6>
+    </div>
+    <div class="condivs">
+        <div class="phone">
+            <img src="{% static 'images/phone.png'%}" alt="phone">
+            <h3>TALK TO SALES</h3>
+            <p>You can directly contact our representatives for queries or for reservations by dialing the given number.
+            </p>
+            <h4>0335-2256189</h4>
+        </div>
+        <div class="phone">
+            <img src="{% static 'images/message.png'%}" alt="phone">
+            <h3>CONTACT CUSTOMER SUPPORT</h3>
+            <p>You can contact customer support via forms by clicking on the below button. However the reservations can
+                be done by just dialing.</p>
+            <a href="#con">CLICK HERE</a>
+        </div>
+    </div>
+    <div id="gallery">
+        <h1>OUR GALLERY</h1>
+        <div class="gal">
+            <div class="boxes" id="box1"><img src="{% static 'images/asparagus-gd5c788de0_1920.jpg'%}" alt=""></div>
+            <div class="boxes" id="box2"><img src="{% static 'images/canape-g464152cab_1920.jpg'%}" alt=""></div>
+            <div class="boxes" id="box3"><img src="{% static 'images/food-g5f6b36207_1920.jpg'%}" alt=""></div>
+            <div class="boxes" id="box4"><img src="{% static 'images/pasta-g38e1e9006_1920.jpg'%}" alt=""></div>
+            <div class="boxes" id="box5"><img src="{% static 'images/cereals-gc6b0e9cbe_1920.jpg'%}" alt=""></div>
+            <div class="boxes" id="box6"><img src="{% static 'images/spaghetti-g348630665_1920.jpg'%}" alt=""></div>
+            <div class="boxes" id="box7"><img src="{% static 'images/strawberry-dessert-g806c557ca_1920.jpg'%}" alt=""></div>
+            <div class="boxes" id="box8"><img src="{% static 'images/vegetable-skewer-ga32b798dd_1920.jpg'%}" alt=""></div>
+            <div class="boxes" id="box9"><img src="{% static 'images/pasta-g38e1e9006_1920.jpg'%}" alt=""></div>
+        </div>
+    </div>
+
+    <div class="con" id="con">
+        <h1>DROP YOUR QUERIES BELOW</h1>
+        <div class="contactform">
+            <div class="formdivs" id="fd1">
+                <img src="{% static 'images/loco.png'%}" alt="location">
+                <h3>LOCATION 1</h3>
+                <p>Buns Road, Saddaar, Karachi</p>
+                <img src="{% static 'images/loco.png'%}" alt="location">
+                <h3>LOCATION 2</h3>
+                <p>Buns Road, Lahore</p>
+                <img src="{% static 'images/loco.png'%}" alt="location">
+                <h3>LOCATION 3</h3>
+                <p>Buns Road, Balochistan</p>
+                <img src="{% static 'images/message.png'%}" alt="location">
+                <h3>Email</h3>
+                <p id="pp">classydine@gmail.com</p>
+            </div>
+            <form action=""></form>
+            <div class="formdivs" id="fd2">
+                <div class="boxe" id="boxe1"><label for="name">TELL YOUR NAME <span>*</span></label></div>
+                <div class="boxe" id="boxe2"><input type="text" placeholder="First Name" id="name"></div>
+                <div class="boxe" id="boxe3"><input type="text" placeholder="Last Name" id="name"></div>
+                <div class="boxe" id="boxe4">ENTER YOUR EMAIL <span>*</span></div>
+                <div class="boxe" id="boxe5"><input type="email" placeholder="Enter Your Email" id="name"></div>
+                <div class="boxe" id="boxe6">ENTER YOUR PHONE NUMBER <span>*</span></div>
+                <div class="boxe" id="boxe7"><input type="tel" placeholder="Enter Your Phone Number" id="name"></div>
+                <div class="boxe" id="boxe8">MESSAGE <span>*</span></div>
+                <div class="boxe" id="boxe9"><textarea name="message" id="message" cols="30" rows="10"></textarea></div>
+                <div class="boxe" id="boxe10"> <button class="btn">SUBMIT</button></div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="reviews">
+        <div id="logo">
+            <img src="{% static 'images/rev.jpg'%}" alt="rev">
+        </div>
+        <div class="revcontainer">
+            <div class="revbox" id="review1">
+                <p><span>“</span>Delicious Food with amazing staff service and timely delivery supremerly
+                    impressed.<span>”</span></p>
+                <h3>~Marium Amir</h3>
+            </div>
+            <div class="revbox" id="review2"><img src="{% static 'images/rev1.jpg'%}" alt="rev1"></div>
+            <div class="revbox" id="review3"><img src="{% static 'images/rev2.jpg'%}" alt="rev2"></div>
+            <div class="revbox" id="review4">
+                <p><span>“</span>JUST AMAZING!! I JUST LOVED THE AMBIANCE AND OVERALL EVERYTHING. A MUST VISIT
+                    PLACE.<span>”</span></p>
+                <h3>~Samiullah</h3>
+            </div>
+            <div class="revbox" id="review5">
+                <p><span>“</span>Just felt in love with the place at a glance. Just the music should have diverse
+                    flavours otherwise amazing.<span>”</span></p>
+                <h3>~Umama Nasir</h3>
+            </div>
+            <div class="revbox" id="review6"><img src="{% static 'images/rev3.jpg'%}" alt="rev3"></div>
+            <div class="revbox" id="review7"></div>
+            <div class="revbox" id="review8"></div>
+            <div class="revbox" id="review9"></div>
+
+        </div>
+    </div>
+
+
+    <footer>
+        <p>COPYRIGHT &copy; www.classydine.com | ALL RIGHTS RESERVED</p>
+    </footer>
+</body>
+  <!-- <body>
     <br>
     <div class="container">
       <div class="row">
@@ -30,7 +796,9 @@
           </div>
         </div>
         <div class="col-md-9">
-          <div class="card card-body"></div>
+          <div class="card card-body">
+            <h4>MY FIRST INTERNSHIP</h4>
+          </div>
         </div>
       </div>
 <br>
@@ -52,5 +820,5 @@
         </div>
       </div>
     </div>
-  </body>
+  </body> -->
 </html>
